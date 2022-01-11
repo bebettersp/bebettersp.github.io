@@ -1,7 +1,9 @@
 # main links
 main:
-  #- title: "Home"
-  #  url: "/"
+  - title: "Home"
+    url: "/"
+  - title: "algorithm"
+    url: /algorithm/
   - title: "Introduce"
     url: /about/
   - title: "Category"
