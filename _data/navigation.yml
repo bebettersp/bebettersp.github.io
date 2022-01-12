@@ -1,12 +1,36 @@
 # main links
 main:
-  - title: "Home"
-    url: "/"
-  - title: "algorithm"
-    url: /algorithm/
-  - title: "Introduce"
+  - title: "Quick-Start Guide"
+    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "About"
     url: /about/
-  - title: "Category"
-    url: "/categories/"
-  - title: "Tags"
-    url: /tags/
+  - title: "Algorithm"
+    url: /categories/algorithm/
+  - title: "A.I"
+    url: /categories/artificial_intelligence/
+  - title: "English"
+    url: /categories/english/
+  - title: "Posts"
+    url: /categories-grid/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
+sidebar_algo:
+  - title: "algorithm"
+    children:
+      - title: "LeetCode"
+        url: /categories/leetcode/
+      - title: "backjune"
+        url: /categories/backjune/
+sidebar_ai:
+  - title: "aritifial intelligent"
+    children:
+      - title: "kaggle"
+        url: /categories/kaggle/
+sidebar_english:
+  - title: "english"
+    children:
+      - title: "opic"
+        url: /categories/opic/
+
