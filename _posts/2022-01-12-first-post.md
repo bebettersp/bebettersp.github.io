@@ -1,7 +1,5 @@
 ---
-permalink: /algorithm/
-title: "categories test!"
-date: 2021-11-20 08:26:28 -0400
+title: "12th January!"
 categories: algorithm leetcode
 ---
 it's fun to try new thing in my life, I'm so freaking out, could you try it on ?? github io is amazing I think. 
@@ -18,7 +16,7 @@ def print_hi(name):
 print_hi('Tom')
 ​```
 
-let's ggogogogogo hello world!!
+**let's ggogogogogo hello world!!**
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
