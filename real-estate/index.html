@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f6f2">
+<title>우리 가족 부동산 후보 비교 · 2026-09-11</title>
+<style>
+:root{
+ --bg:#f5f6f2;--card:#fff;--text:#20231f;--muted:#70766d;--line:#e4e7df;
+ --green:#2f614b;--greenSoft:#e8f1ec;--gold:#8a6924;--goldSoft:#f5efdf;
+ --blue:#3d6287;--blueSoft:#eaf0f6;--red:#954c47;--redSoft:#f7ecea;
+ --shadow:0 10px 30px rgba(40,48,38,.07);--r:22px
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.58}
+.wrap{width:min(1160px,calc(100% - 30px));margin:auto}
+.hero{padding:48px 0 18px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:900;color:var(--green)}
+h1{font-size:clamp(32px,5.8vw,58px);line-height:1.08;letter-spacing:-.045em;margin:10px 0 16px}
+.lead{max-width:890px;font-size:clamp(17px,2vw,21px);color:#4d554d;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pill{background:#fff;border:1px solid var(--line);padding:7px 11px;border-radius:999px;font-size:13px;font-weight:800}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.summary{display:grid;grid-template-columns:1.4fr .9fr;gap:16px;margin:22px 0 38px}
+.summary>div{padding:25px}
+.kicker{font-size:12px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.big{font-size:25px;line-height:1.38;font-weight:900;letter-spacing:-.025em;margin:8px 0 0}
+.sub{color:var(--muted);margin:10px 0 0}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
+.stat{padding:14px;background:#f8faf7;border:1px solid var(--line);border-radius:15px}
+.stat b{display:block;font-size:19px}.stat span{font-size:12px;color:var(--muted)}
+section{margin:42px 0}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:15px}
+h2{font-size:clamp(24px,4vw,35px);letter-spacing:-.035em;margin:0}
+.note{font-size:13px;color:var(--muted);max-width:560px}
+.insight{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.insight>div{padding:20px}
+.insight h3{font-size:18px;margin:8px 0 7px}.insight p{font-size:13px;color:var(--muted);margin:0}
+.tag{display:inline-block;font-size:11px;font-weight:900;padding:6px 9px;border-radius:999px}
+.green{background:var(--greenSoft);color:var(--green)} .blue{background:var(--blueSoft);color:var(--blue)}
+.gold{background:var(--goldSoft);color:var(--gold)} .red{background:var(--redSoft);color:var(--red)}
+.focusgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.focus{padding:22px}
+.focus h3{font-size:23px;letter-spacing:-.02em;margin:8px 0 5px}
+.price{font-size:30px;font-weight:950;letter-spacing:-.04em;margin:8px 0}
+.facts{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 14px}
+.fact{font-size:12px;font-weight:800;background:#f5f6f3;border:1px solid var(--line);border-radius:10px;padding:6px 9px}
+.twobox{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.box{padding:12px;border-radius:13px;font-size:13px}.good{background:var(--greenSoft)}.care{background:var(--redSoft)}
+.box b{display:block;margin-bottom:3px}
+.tier{overflow:hidden}
+.tierhead{padding:19px 21px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center}
+.badge{width:48px;height:48px;border-radius:14px;background:#20231f;color:#fff;display:grid;place-items:center;font-weight:950}
+.tierhead h3{margin:0;font-size:21px}.tierhead small{color:var(--muted)}
+.tablewrap{overflow:auto}
+table{border-collapse:collapse;width:100%;min-width:980px}
+th,td{padding:13px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);background:#fafbf9;position:sticky;top:0}
+td strong,.name{font-weight:900}.pricecell{font-weight:900;white-space:nowrap}.key{background:#fffdf5}
+.match{padding:24px;margin-bottom:16px}
+.matchtop{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.matchtop h3{font-size:25px;margin:9px 0 3px;letter-spacing:-.025em}
+.verdict{font-size:13px;font-weight:900;background:var(--greenSoft);color:var(--green);padding:9px 12px;border-radius:12px}
+.notice{padding:16px 18px;border-radius:14px;background:var(--goldSoft);color:#5d4c29;font-size:13px;margin-top:14px;border-left:4px solid var(--gold)}
+.actiongrid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.action{padding:17px 18px;display:flex;gap:11px}
+.num{width:27px;height:27px;border-radius:8px;background:var(--greenSoft);color:var(--green);font-weight:950;display:grid;place-items:center;flex:0 0 auto}
+.action b{display:block}.action span{font-size:12px;color:var(--muted)}
+footer{padding:15px 0 48px;color:var(--muted);font-size:12px}
+@media(max-width:820px){
+ .summary,.focusgrid,.insight{grid-template-columns:1fr}
+ .actiongrid{grid-template-columns:1fr}
+ .twobox{grid-template-columns:1fr}
+ .hero{padding-top:32px}
+}
+@media print{body{background:#fff}.card{box-shadow:none}.wrap{width:100%;padding:0 12mm}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+  <div class="eyebrow">Family Home Decision · Updated Repository</div>
+  <h1>우리 가족 집 갈아타기<br>후보 비교 리포트</h1>
+  <p class="lead">
+    최신 레포의 <strong>가격·셔틀·면적</strong>에 더해 이번에 추가된
+    <strong>준공 시점과 총 세대수</strong>까지 같이 봅니다.
+    핵심은 “같은 통근권, 비슷한 가격이면 어떤 단지가 가족에게 더 좋은가?”입니다.
+  </p>
+  <div class="meta">
+    <span class="pill">기준일 2026-09-11</span>
+    <span class="pill">4인 가족</span>
+    <span class="pill">84㎡ 우선</span>
+    <span class="pill">편안한 예산 8.5억 안팎</span>
+  </div>
+</header>
+<div class="summary">
+  <div class="card">
+    <div class="kicker">현재 압축 결론</div>
+    <div class="big">
+      2군 핵심은 여전히 <span style="color:var(--green)">중흥S ≈ 포레너스</span>이고,
+      연식·세대수까지 넣으면 <strong>포레너스의 대단지 안정성</strong>과
+      <strong>중흥의 준신축·낮은 진입가</strong> 차이가 더 선명해집니다.
+    </div>
+    <p class="sub">
+      반도유보라2.0은 999세대 대단지이지만 현재 후보가 74㎡이고,
+      영통3는 2022년식이라는 강한 신축 프리미엄 대신 59㎡ 9억의 면적 부담이 큽니다.
+    </p>
+  </div>
+  <div class="card">
+    <div class="kicker">새로 추가된 비교축</div>
+    <div class="statgrid">
+      <div class="stat"><b>2017.03</b><span>포레너스 · 1,316세대</span></div>
+      <div class="stat"><b>2019.01</b><span>중흥S · 436세대</span></div>
+      <div class="stat"><b>2016.02</b><span>반도2.0 · 999세대</span></div>
+      <div class="stat"><b>2022.09</b><span>영통3 · 664세대</span></div>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="sectionhead">
+    <div><div class="kicker">What Changed</div><h2>연식·세대수가 들어오니 보이는 것</h2></div>
+    <div class="note">세대수는 단독 점수가 아니라 유동성·인지도·커뮤니티를 보는 보조 변수, 연식은 수리비·신축 프리미엄을 보는 보조 변수로 사용합니다.</div>
+  </div>
+  <div class="insight">
+    <div class="card"><span class="tag blue">포레너스 강화</span><h3>1,316세대의 힘</h3><p>2017년식이라 아주 새 집은 아니지만, 1,316세대 대단지 + 84㎡ + 생활권 조합은 향후 환금성과 실거주 안정성 측면에서 분명한 장점입니다.</p></div>
+    <div class="card"><span class="tag green">중흥의 정체성</span><h3>더 새롭고, 더 싸지만 작다</h3><p>2019년식 436세대. 포레보다 준공은 약 2년 늦고 84㎡ 8.1억 진입가가 매력적이지만, 단지 규모는 핵심 후보 중 작은 편입니다.</p></div>
+    <div class="card"><span class="tag gold">병점 재평가 포인트</span><h3>2021년 · 2,666세대</h3><p>3군이라 출퇴근은 손해지만, 초대형 대단지와 신축급 연식은 자산·환금성 측면에서 무시하기 어려운 강점입니다.</p></div>
+  </div>
+</section>
+<section>
+  <div class="sectionhead"><div><div class="kicker">Final Four</div><h2>핵심 4개 후보</h2></div><div class="note">같은 셔틀군 안에서 자산성·가족 실거주·연식·단지 규모를 함께 봅니다.</div></div>
+  <div class="focusgrid">
+    <article class="card focus"><span class="tag green">상승률 공격형</span><h3>동탄역중흥S클래스 84㎡</h3><div class="price">8.1억</div><div class="facts"><span class="fact">2019.01</span><span class="fact">436세대</span><span class="fact">출근 20분</span><span class="fact">퇴근 16.2분</span></div><div class="twobox"><div class="box good"><b>강점</b>준신축 84㎡를 가장 낮은 가격에 진입. 셔틀도 충분히 좋음.</div><div class="box care"><b>확인</b>436세대 중규모. 왜 8.1억인지 동·층·일조·주차 확인.</div></div></article>
+    <article class="card focus"><span class="tag blue">실거주 + 자산 균형</span><h3>동탄역포레너스 84C 16층</h3><div class="price">9.0억 <span style="font-size:14px;color:var(--muted)">· 목표 8.8억</span></div><div class="facts"><span class="fact">2017.03</span><span class="fact">1,316세대</span><span class="fact">출근 19분</span><span class="fact">퇴근 19.4분</span><span class="fact">방 4</span></div><div class="twobox"><div class="box good"><b>강점</b>대단지 + 방4 + 11자상권·학교·공원. 가족 실거주 균형이 가장 좋음.</div><div class="box care"><b>확인</b>9억 호가는 부담. 내부 수리 상태와 8.8억 안팎 협상 여부.</div></div></article>
+    <article class="card focus"><span class="tag gold">고층·대단지</span><h3>반도유보라 아이비파크2.0 74㎡ 18층</h3><div class="price">8.2억</div><div class="facts"><span class="fact">2016.02</span><span class="fact">999세대</span><span class="fact">출근 19분</span><span class="fact">퇴근 19.4분</span></div><div class="twobox"><div class="box good"><b>강점</b>999세대 대단지, 18층 상품성, 11자생활권.</div><div class="box care"><b>확인</b>4인 가족에게 74㎡가 장기적으로 충분한지.</div></div></article>
+    <article class="card focus"><span class="tag red">신축·환금성</span><h3>영통아이파크캐슬3단지 59A 고층</h3><div class="price">9.0억</div><div class="facts"><span class="fact">2022.09</span><span class="fact">664세대</span><span class="fact">셔틀 약 17분</span><span class="fact">59㎡</span></div><div class="twobox"><div class="box good"><b>강점</b>2022년식 신축급 + 영통·망포 수요 안정성.</div><div class="box care"><b>확인</b>59㎡ 9억. 네 식구 공간 부족을 신축·입지가 상쇄하는지.</div></div></article>
+  </div>
+</section>
+<section>
+  <div class="sectionhead"><div><div class="kicker">Same Budget Matchups</div><h2>비슷한 가격끼리 맞대결</h2></div><div class="note">이번 버전에서는 준공과 세대수를 실제 비교표에 직접 넣었습니다.</div></div>
+  <div class="card match">
+    <div class="matchtop"><div><span class="tag blue">9억대</span><h3>영통아이파크3 59㎡ vs 포레너스 84C 16층</h3><div class="note">신축·영통 입지 vs 대단지·84㎡ 가족 공간</div></div><div class="verdict">가족 기준: 포레너스 우세</div></div>
+    <div class="tablewrap" style="margin-top:16px"><table style="min-width:800px"><thead><tr><th>비교</th><th>영통아이파크3</th><th>포레너스</th><th>판단</th></tr></thead><tbody>
+      <tr><td>가격</td><td><strong>9.0억</strong></td><td><strong>9.0억</strong> · 목표 8.8억</td><td>협상 시 포레 우세</td></tr>
+      <tr><td>준공</td><td><strong>2022.09</strong></td><td>2017.03</td><td><strong>영통</strong></td></tr>
+      <tr><td>세대수</td><td>664세대</td><td><strong>1,316세대</strong></td><td><strong>포레너스</strong></td></tr>
+      <tr><td>면적</td><td>59㎡</td><td><strong>84㎡ · 방4</strong></td><td><strong>포레너스</strong></td></tr>
+      <tr><td>셔틀</td><td><strong>약 17분</strong></td><td>출근 19 / 퇴근 19.4분</td><td>영통 소폭</td></tr>
+      <tr><td>생활권·환금성</td><td><strong>영통·망포, 신축 수요</strong></td><td>11자상권·학교·공원 + 대단지</td><td>성격 차이</td></tr>
+      <tr class="key"><td>한 줄 결론</td><td>“공간을 줄여 신축·영통을 산다”</td><td>“같은 돈으로 84㎡ 대단지와 가족 공간을 산다”</td><td><strong>우리 가족은 포레</strong></td></tr>
+    </tbody></table></div>
+    <div class="notice"><strong>연식 정보가 추가되면서 영통의 논리는 더 강해졌지만</strong>, 같은 9억에 59㎡와 84㎡의 격차는 여전히 큽니다. 특히 포레너스가 8.8억에 협상된다면 4인 가족 기준 가격·면적·대단지 조합이 더 유리해집니다.</div>
+  </div>
+  <div class="card match">
+    <div class="matchtop"><div><span class="tag green">8.1~8.2억대</span><h3>중흥S 84 vs 반도2.0 74 고층 vs 포레너스 84 1층</h3><div class="note">실제로 가장 공정한 가격대 비교</div></div><div class="verdict">1순위: 중흥 매물 상품성 확인</div></div>
+    <div class="tablewrap" style="margin-top:16px"><table style="min-width:980px"><thead><tr><th>비교</th><th>중흥S 84</th><th>반도2.0 74 18층</th><th>포레너스 84 1층</th></tr></thead><tbody>
+      <tr><td>가격</td><td><strong>8.1억</strong></td><td>8.2억</td><td>8.2억 · 목표 8.0~8.1억</td></tr>
+      <tr><td>준공</td><td><strong>2019.01</strong></td><td>2016.02</td><td>2017.03</td></tr>
+      <tr><td>세대수</td><td>436세대</td><td>999세대</td><td><strong>1,316세대</strong></td></tr>
+      <tr><td>면적</td><td><strong>84㎡</strong></td><td>74㎡</td><td><strong>84㎡ · 방4</strong></td></tr>
+      <tr><td>층</td><td>매물별 확인</td><td><strong>18층</strong></td><td>1층</td></tr>
+      <tr><td>셔틀</td><td><strong>20 / 16.2분</strong></td><td>19 / 19.4분</td><td>19 / 19.4분</td></tr>
+      <tr><td>자산 포인트</td><td><strong>준신축 + 가장 낮은 84㎡ 진입가</strong></td><td>999세대 + 고층</td><td>1,316세대 + 84㎡ 저가 진입</td></tr>
+      <tr><td>핵심 리스크</td><td>436세대 + 저가 이유 확인</td><td>74㎡ 면적</td><td>1층·습기·일조·사생활</td></tr>
+      <tr class="key"><td>현재 역할</td><td><strong>공격형 1순위</strong></td><td>상품성·고층형</td><td>가족공간·대단지 할인형</td></tr>
+    </tbody></table></div>
+    <div class="notice"><strong>연식·세대수까지 넣은 잠정 해석:</strong> 중흥은 2019년식이라는 장점이 있지만 436세대로 작고, 포레너스 1층은 2017년식이지만 1,316세대 대단지라는 반대 장점이 있습니다. 그래서 중흥 매물 자체에 큰 문제가 없다면 <strong>중흥 84 8.1억이 먼저</strong>, 문제가 있으면 <strong>포레 1층 ↔ 반도 18층</strong>으로 나뉘는 구조가 더 명확해졌습니다.</div>
+  </div>
+</section>
+<section>
+  <div class="sectionhead"><div><div class="kicker">3 Groups</div><h2>전체 후보 · 연식·세대수 포함</h2></div><div class="note">셔틀은 도보 제외 탑승 후 이동시간. 일부 후보는 한쪽 방향 표본만 있어 추가 확인이 필요합니다.</div></div>
+  <div class="card tier"><div class="tierhead"><div class="badge">1군</div><div><h3>약 15분 이하</h3><small>출퇴근 자체가 강점</small></div></div><div class="tablewrap"><table><thead><tr><th>순위</th><th>단지·매물</th><th>가격</th><th>준공</th><th>세대수</th><th>셔틀</th><th>강점</th><th>약점</th></tr></thead><tbody>
+    <tr><td>1</td><td class="name">반정아이파크캐슬5 59B 10층</td><td class="pricecell">8.5억</td><td>2022.12</td><td><strong>1,378</strong></td><td>약 15분</td><td>신축급 대단지·학군·커뮤니티</td><td>59㎡ 가격 부담·비역세권</td></tr>
+    <tr class="key"><td>2</td><td class="name">예당마을푸르지오 84 17층</td><td class="pricecell">8.4억</td><td>2008.10</td><td>978</td><td>10 / 7분</td><td>직주근접·성숙 생활권·84㎡</td><td>구축·인테리어</td></tr>
+    <tr><td>3</td><td class="name">능동역이지더원 84 고층</td><td class="pricecell">7.5억</td><td>2008.05</td><td>542</td><td>퇴근 11.7분</td><td>저가·84㎡·빠른 셔틀</td><td>구축·생활권 프리미엄</td></tr>
+    <tr><td>4</td><td class="name">동탄파크푸르지오 84</td><td class="pricecell">약 7억권</td><td><strong>2018.01</strong></td><td><strong>913</strong></td><td>퇴근 15분</td><td>준신축 대단지·가격 메리트</td><td>핵심생활권 프리미엄 약함</td></tr>
+  </tbody></table></div></div>
+  <div style="height:13px"></div>
+  <div class="card tier"><div class="tierhead"><div class="badge">2군</div><div><h3>약 16~20분</h3><small>현재 실질적인 최종 경쟁군</small></div></div><div class="tablewrap"><table><thead><tr><th>순위</th><th>단지·매물</th><th>가격</th><th>준공</th><th>세대수</th><th>셔틀</th><th>강점</th><th>약점</th></tr></thead><tbody>
+    <tr class="key"><td>1</td><td class="name">동탄역중흥S 84</td><td class="pricecell">8.1억</td><td>2019.01</td><td>436</td><td>20 / 16.2분</td><td>준신축·낮은 84㎡ 진입가</td><td>중규모·매물 상품성 확인</td></tr>
+    <tr class="key"><td>2</td><td class="name">동탄역포레너스 84C 16층</td><td class="pricecell">9억 / 목표 8.8</td><td>2017.03</td><td><strong>1,316</strong></td><td>19 / 19.4분</td><td>대단지·방4·생활 균형</td><td>예산 상단</td></tr>
+    <tr><td>3</td><td class="name">반도유보라2.0 74 18층</td><td class="pricecell">8.2억</td><td>2016.02</td><td>999</td><td>19 / 19.4분</td><td>대단지·고층·생활권</td><td>74㎡</td></tr>
+    <tr><td>4</td><td class="name">영통아이파크캐슬3 59A 고층</td><td class="pricecell">9억</td><td><strong>2022.09</strong></td><td>664</td><td>약 17분</td><td>신축급·영통 수요 안정성</td><td>59㎡·진입가</td></tr>
+    <tr><td>5</td><td class="name">에일린의뜰 84 저층</td><td class="pricecell">8.5억</td><td>2016.12</td><td>489</td><td>참고 20 / 16.2분</td><td>84㎡·상권·산책 균형</td><td>중규모·저층</td></tr>
+    <tr><td>6</td><td class="name">서동탄역파크자이 84 18층</td><td class="pricecell">7억</td><td>2018.01</td><td>982</td><td>퇴근 19.3분</td><td>준신축 대단지·고층 84 저가</td><td>핵심생활권 프리미엄 약함</td></tr>
+  </tbody></table></div></div>
+  <div style="height:13px"></div>
+  <div class="card tier"><div class="tierhead"><div class="badge">3군</div><div><h3>약 23~28분</h3><small>출퇴근을 상쇄할 자산·가격 메리트가 필요</small></div></div><div class="tablewrap"><table><thead><tr><th>순위</th><th>단지·매물</th><th>가격</th><th>준공</th><th>세대수</th><th>셔틀</th><th>강점</th><th>약점</th></tr></thead><tbody>
+    <tr class="key"><td>1</td><td class="name">병점아이파크캐슬 75B 19층</td><td class="pricecell">8.5억</td><td><strong>2021.03</strong></td><td><strong>2,666</strong></td><td>H1 20 / 퇴근 23분</td><td>신축급 초대형·병점 생활권</td><td>DSR 출근 추가시간·75㎡</td></tr>
+    <tr><td>2</td><td class="name">금강펜테리움 센트럴파크 84 10층</td><td class="pricecell">7.9억</td><td>2016.07</td><td>827</td><td>퇴근 27.5분</td><td>84㎡·대단지·7억 후반</td><td>셔틀·도보상권</td></tr>
+  </tbody></table></div></div>
+</section>
+<section>
+  <div class="sectionhead"><div><div class="kicker">Next Steps</div><h2>이제 확인할 것</h2></div></div>
+  <div class="actiongrid">
+    <div class="card action"><div class="num">1</div><div><b>중흥 8.1억 매물 상품성</b><span>동·층·일조·주차·실입주 조건. 정상 매물이면 8.1~8.2억대 1순위.</span></div></div>
+    <div class="card action"><div class="num">2</div><div><b>포레너스 16층 실제 협상가</b><span>8.8억 안팎이면 영통 59㎡와 비교 시 더 강해짐.</span></div></div>
+    <div class="card action"><div class="num">3</div><div><b>포레 1층 ↔ 반도 18층 연속 임장</b><span>대단지 84㎡ 1층 vs 대단지 74㎡ 고층을 실제 체감으로 결정.</span></div></div>
+    <div class="card action"><div class="num">4</div><div><b>병점 DSR 실출근 보완</b><span>2021년·2,666세대의 장점을 감수할 만큼 실제 통근이 가능한지 확인.</span></div></div>
+    <div class="card action"><div class="num">5</div><div><b>동탄파크푸르지오 재확인</b><span>2018년·913세대라는 제원이 생각보다 괜찮아 7억권이면 가성비 재평가 가치 있음.</span></div></div>
+    <div class="card action"><div class="num">6</div><div><b>예당 인테리어 총투입비</b><span>2008년식이므로 매수가만 보지 말고 실제 수리비까지 포함해 비교.</span></div></div>
+  </div>
+</section>
+<section><div class="notice"><strong>주의:</strong> 가격은 대부분 호가이며 확정 계약가가 아닙니다. 준공·세대수는 최신 레포의 기본 제원 마스터를 반영했습니다. 연식과 세대수는 단독으로 순위를 결정하지 않고, 입지·면적·가격·층·생활권과 함께 해석합니다.</div></section>
+<footer>가족 공유용 리포트 · source: bebettersp/real-estate-log · 2026-09-11<br>반영: 01-candidates/complex-basics.md · shuttle-groups.md · candidates.md · dongtan-forenus.md · 04-decisions/decision-log.md</footer>
+</main>
+</body>
+</html>
